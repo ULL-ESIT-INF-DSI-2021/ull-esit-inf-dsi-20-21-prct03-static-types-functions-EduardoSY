@@ -31,6 +31,12 @@ console.log(isLeapYear(fecha));
 console.log(isLeapYear(fecha2));
 ```
 
+**OUTPUT**
+```
+No es bisiesto
+Es bisiesto
+```
+
 La función **isLeapYear** recibe el numero a comprobar. Luego, en base a unas reglas que se nos dice en el enunciado, hacemos las condiciones que nos permiten filtrar los años bisiestos de los no bisiestos.
 Esas reglas son:
 - Cada año que es divisible por 4.
@@ -77,6 +83,12 @@ console.log('341010 a decimal -> ' + factorialToDecimal('341010'));
 
 ```
 
+**OUTPUT**
+```
+463 a factorial -> 341010
+341010 a decimal -> 463
+```
+
 La primera función que encontramos es **factorialRecur**. Su función es simplemente calcular el factorial de un número de manera recursiva.
 
 La segunda función es **decimalToFactorial**. Como su nombre indica nos permite pasar de decimal a notación factorádica dado un número. Tal y como nos pide el enunciado, el valor de retorno debe ser una cadena.
@@ -121,6 +133,13 @@ console.log(isValid(cadena)?"Aceptada":"No aceptada");
 let cadena2: string = "5Esto5Falla";
 console.log(isValid(cadena2)?"Aceptada":"No aceptada");
 ```
+
+**OUTPUT**
+```
+Aceptada
+No aceptada
+```
+
 Recibimos como parámetro un string que es la cadena a analizar y como resultado devolveremos un booleano true en caso de ser valida o false si no válida.
 Primero analizamos el caso más sencillo. Si es una cadena vacia la damos por válida. 
 
@@ -169,6 +188,13 @@ let test3: string = 'cadena_test_snake_to_camel';
 console.log(fromSnakeToCamelCase(test3));
 ```
 
+**OUTPUT**
+```
+cadena_test_camel_to_snake
+cadena_test2_camel_to_snake
+cadenaTestSnakeToCamel
+```
+
 La primera función es **fromCamelToSnakeCase**. Lo primero que hacemos es analizar la primera letra. En caso de que sea mayúscula la pasamos a minúscula. Si no hicieramos esto el resultado de pasarle **Hola** a esta función sería **_hola** y eso no es lo que queremos.
 
 Lo siguiente que hacemos es reemplazar las letras mayúsculas por su correspondiente minúscula precedida de una \_. Para esto usamos la función **replace** junto a esta expresión regular: /([A-Z])/g. Lo que hace es encontrar todos los matches con letras mayúsculas en la cadena. Con '\_$1' es la cadena por la que sustituimos. $1 corresponde al match hecho por la expresión regular. Por tanto, lo que estamos haciendo es añadir una _ antes de cada mayúscula. Finalmente transformamos todo el string a minúsculas y retornamos la cadena resultante.
@@ -193,6 +219,14 @@ console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'));
 console.log(onePunch('Snot Snow Soda Tank Beard'));
 console.log(onePunch(''));
 ```
+
+**OUTPUT**
+```
+Brd Hirbrush Jns Knuckldustr Snd
+Brd Snot Snow Sod Tnk
+Broken!
+```
+
 Con un operador ternario comprobamos si la longitud de la cadena de entrada es 0. Si efectivamente es 0 retornamos la cadena **Broken!**. En caso de que no lo sea lo que hacemos es itilizar la función **replace** para eliminar las a y e encontradas por la expresión /[ae]/ig. Es importante usar el flag i para que no tenga en cuenta si son mayúsculas o minúsculas. Esa cadena resultante la separamos por espacios gracias a **split(' ')** y ordenamos alfabeticamente gracias a **sort()**. Finalmente volvemos a reunir la cadena dejando un espacio entre palabras con **join(' ')**. 
 
 ### Ejercicio 6
@@ -231,6 +265,15 @@ console.log(isValidISBN('6-588-21507-X')?"Acepta":"No acepta");
 console.log(isValidISBN('359821507X')?"Acepta":"No acepta");
 console.log(isValidISBN('359821507F')?"Acepta":"No acepta");
 console.log(isValidISBN('11')?"Acepta":"No acepta");
+```
+
+**OUTPUT**
+```
+Acepta
+Acepta
+Acepta
+No acepta
+No acepta
 ```
 
 Lo primero que hacemos es eliminar los guiones y separar cada caracter del código. Asi trabajaremos más comodamente.
@@ -284,6 +327,17 @@ console.log(nextGreater(9));
 console.log(nextGreater(111));
 console.log(nextGreater(321));
 ```
+
+**OUTPUT**
+```
+531
+2071
+6010
+-1
+-1
+-1
+```
+
 Lo primero que hacemos es pasar el número a string para poder dividirlo dígito a dígito. 
 Buscamos el primer número, de derecha a izquierda, cuyo siguiente número sea menor . Este será nuestro pivote.
 
@@ -323,6 +377,14 @@ console.log(ipsInRange('10.0.0.0', '10.0.0.50'));
 console.log(ipsInRange('20.0.0.0', '20.0.1.0'));
 console.log(ipsInRange('20.0.10.0', '20.0.1.0'));
 console.log(ipsInRange('20.0.0.10', '20.0.1.0'));
+```
+
+**OUTPUT**
+```
+50
+256
+2304
+246
 ```
 
 Para resolver este ejercicio hemos hecho dos funciones. La primera funcion, **ip2int**, pasa la dirección dada a un número.
@@ -399,6 +461,13 @@ combatePokemon('Electrico', 'Agua', 54, 46));
 console.log('Torchic [at. 9] VS Treecko [def. 15] --> Damage: ' +
 combatePokemon('Fuego', 'Hierba', 9, 15));
 ```
+
+**OUTPUT**
+```
+Pikachu [at. 54] VS Magikarp [def. 46] --> Damage: 117.39
+Torchic [at. 9] VS Treecko [def. 15] --> Damage: 60
+```
+
 A esta función le pasamos como parámetro el tipo del pokemon atacante y el tipo del pokemon defensor como strings y el ataque del atacante y la defensa del defensor como números. El resultado a devolver será el daño que causa nuestro pokemon.
 
 Como el valor de la efectividad depende de los tipos lo que haremos será ir comparando cada uno de los tipos para así asignar el valor correspondiente a la efectividad.
@@ -440,6 +509,14 @@ console.log(isValidUsername('_esTe$usERNo_vale'));
 console.log(isValidUsername('EstE_us3r-VAle'));
 console.log(isValidUsername('u__hello$122__'));
 ```
+
+**OUTPUT**
+```
+false
+true
+false
+```
+
 Para esta función **isValidUsername** debemos saber qué hace regex.**test**(string). Test aplica la expresión regular al string que le pasamos como parámetro y devuelve true en caso de que se cumpla o false en caso de que no se cumpla. Sabiendo eso vamos a analizar cada if de nuestra función.
 
 El **primer IF** corresponde a la primera cláusula. Nos comprueba que el tamaño del nombre esté entre 4 y 30 caractéres.
