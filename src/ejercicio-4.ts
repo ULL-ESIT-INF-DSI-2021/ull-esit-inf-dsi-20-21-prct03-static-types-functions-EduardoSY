@@ -11,7 +11,7 @@ function fromSnakeToCamelCase(cadena: string): string {
   if (/[A-Z]/.test(cadena[0])) {
     cadena = cadena.toLowerCase();
   }
-  return cadena.replace(/([-_]\w)/g,
+  return cadena.replace(/([_]\w)/g,
       function(match: string) {
         return match[1].toUpperCase();
       });
