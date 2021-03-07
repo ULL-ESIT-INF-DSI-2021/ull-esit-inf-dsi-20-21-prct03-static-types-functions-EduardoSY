@@ -7,6 +7,21 @@ Para esta tercera práctica vamos a programar en Typescript. Se nos proponen una
 ## 2. Pasos previos
 Antes de comenzar a programar en Typescript debemos crear organizar correctamente nuestro proyecto, creando los directorios y ficheros de configuración correspondientes. Vamos a seguir esta [Guía de creación de proyecto](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html) para organizar nuestro trabajo.
 
+Veremos que durante el transcurso de la guía hemos de crear un fichero **tsconfig.json**. Yo le he hecho unas pequeñas modificaciones añadiendo dos líneas que nos recomendó el profesor:
+
+Este sería mi fichero **tsconfig.json**:
+```
+{
+"compilerOptions": {
+    "target": "ES2020",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noImplicitAny": true,                    /* Raise error on expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": true                 /* Enable strict null checks. */
+  }
+}
+```
+
 ## 3. Ejercicios:
 
 ### Ejercicio 1
