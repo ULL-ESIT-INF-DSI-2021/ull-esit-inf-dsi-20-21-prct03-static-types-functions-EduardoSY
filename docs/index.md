@@ -80,3 +80,45 @@ La tercera y última función, **factorialToDecimal**, hace justamente lo contra
 Cremos una variable auxiliar que será la que indique el valor del factorial. En el _bucle for_ nos colocamos en la posición de la derecha del string que representa al número factorádico. Lo siguiente que hacemos es pasar el caracter del string a un valor numérico para poder multiplicarlo por su factorial correspondiente e ir acumulando la suma de estas operaciones. Incrementamos el valor del factorial y pasamos a la siguiente iteración, desplazandonos una posición a la izquierda. Este proceso se repite a lo largo de todo el número.
 Una vez finalizado devolvemos la suma que hemos ido acumulando. Ese es nuestro numero en decimal.
 
+### Ejercicio 3
+En este ejercicio debemos validar cadenas que tienen la forma Xsubstring1Ysubstring2... siendo X e Y numeros y substring1 y substring2 cadenas de letras. Para que una cadena sea válida debe cumplirse lo siguiente:
+- Los mensajes solo tienen números y letras.
+- Los números pueden tener varios dígitos. Por ejemplo, la cadena “4code10helloworld” es un mensaje válido.
+- Cada número debe corresponder con la longitud de la subcadena que se encuentra a continuación, en cualquier otro caso el mensaje no será válido.
+- La cadena vacía se considera un mensaje válido.
+
+Para resolver todo lo anterior vamos a implementar la funcion **isValid**.
+```typescript
+function isValid(cadenita: string): boolean {
+  if (cadenita.length === 0) {
+    return true;
+  }
+  const outputmatch: RegExpMatchArray | null = cadenita.match(/[\d]+|\D+/g);
+  let separado: string[] = outputmatch as RegExpMatchArray;
+  for (let i: number = 0; i < separado.length;) {
+    let aux: number = parseInt(separado[i], 10);
+    if (aux != separado[i+1].length) {
+      return false;
+    }
+    i+=2;
+  }
+  return true;
+}
+let cadena: string = "3Hey5Amigo";
+console.log(isValid(cadena)?"Aceptada":"No aceptada");
+let cadena2: string = "5Esto5Falla";
+console.log(isValid(cadena2)?"Aceptada":"No aceptada");
+```
+Recibimos como parámetro un string que es la cadena a analizar y como resultado devolveremos un booleano true en caso de ser valida o false si no válida.
+Primero analizamos el caso más sencillo. Si es una cadena vacia la damos por válida. 
+
+En el caso de que no sea vacia vamos a analizarla. Para ello vamos a dividir la cadena separando las subcadenas de números y de letras. Para ello hacemos uso de una expresión regular, **/[\d]+|\D+/g** que busca las coincidencias cuando hay un grupo de número o grupo de letras. Al añadir la opción **g**, match nos devuelve un array con todos los emparejamientos.
+
+```typescript
+//ATENCION A ESTAS DOS LINEAS
+const outputmatch: RegExpMatchArray | null = cadenita.match(/[\d]+|\D+/g);
+let separado: string[] = outputmatch as RegExpMatchArray;
+```
+Como no podemos asignar directamente la salida de la función **match** a un **string[]** debemos guardarla primero en una variable o constante tipo **RegExpMatchArray | null** (tal cual nos dice el compilador) y luego, en la linea siguiente, indicarle al compilador que trate a ese string[] como un RegExpMatchArray.
+
+Finalmente pasamos las cadenas numericas a números y comparamos su valor con la longutud de la cadena siguiente. Recordemos que para que sea válida la palabra los números deben corresponder a la longitud de la siguiente subcadena. Analizamos de esta manera todos los pares. Si Encontramos algún par incorrecto devolveremos false. En caso de que todo esté correcto devolvemos true.
