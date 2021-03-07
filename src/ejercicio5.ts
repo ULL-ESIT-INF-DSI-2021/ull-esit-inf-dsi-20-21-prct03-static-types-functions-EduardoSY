@@ -5,7 +5,7 @@
 
 function onePunch(cadena: string): string {
   return ((cadena.length === 0)?
-  'Broken!':cadena.replace( /[ae]/g, '').split(' ').sort().join(' '));
+  'Broken!':cadena.replace( /[ae]/ig, '').split(' ').sort().join(' '));
 }
 
 console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'));
