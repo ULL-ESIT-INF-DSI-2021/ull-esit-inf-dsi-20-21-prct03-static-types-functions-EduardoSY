@@ -7,6 +7,7 @@ Para esta tercera práctica vamos a programar en Typescript. Se nos proponen una
 ## 2. Ejercicios:
 
 ### Ejercicio 1
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-1.ts)
 En este primer ejercicio se nos plantea calcular qué años son bisiestos.
 
 ```typescript
@@ -32,6 +33,7 @@ Esas reglas son:
 - - - Al menos que el año también sea divisible por 400.
 
 ### Ejercicio 2
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-2.ts)
 A mi criterio este ha sido uno de los ejercicios más complejos, no tanto por la implementación sino por el propio concepto de notación factorádica. En este caso se nos pide transformar un número de notación decimal a notación factorádica. Para entender el concepto de factorádico es recomendable ver [este articulo de wikipedia](https://en.wikipedia.org/wiki/Factorial_number_system).
 
 ```typescript
@@ -81,6 +83,7 @@ Cremos una variable auxiliar que será la que indique el valor del factorial. En
 Una vez finalizado devolvemos la suma que hemos ido acumulando. Ese es nuestro numero en decimal.
 
 ### Ejercicio 3
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-3.ts)
 En este ejercicio debemos validar cadenas que tienen la forma Xsubstring1Ysubstring2... siendo X e Y numeros y substring1 y substring2 cadenas de letras. Para que una cadena sea válida debe cumplirse lo siguiente:
 - Los mensajes solo tienen números y letras.
 - Los números pueden tener varios dígitos. Por ejemplo, la cadena “4code10helloworld” es un mensaje válido.
@@ -124,6 +127,7 @@ Como no podemos asignar directamente la salida de la función **match** a un **s
 Finalmente pasamos las cadenas numericas a números y comparamos su valor con la longutud de la cadena siguiente. Recordemos que para que sea válida la palabra los números deben corresponder a la longitud de la siguiente subcadena. Analizamos de esta manera todos los pares. Si encontramos algún par incorrecto devolveremos false. En caso de que todo esté correcto devolvemos true.
 
 ### Ejercicio 4
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-4.ts)
 Vamos a implementar un conversor de estilo. Debemos pasar de camelCase a snake_case y viceversa. Además de esto debemos tener en cuenta que el texto de salida **siempre** debe comenzar por minúscula.
 
 ```typescript
@@ -163,6 +167,7 @@ Hacemos uso de la función **replace** otra vez. En este caso tenemos como prime
 Con todo esto ya tendríamos nuestra cadena en CamelCase.
 
 ### Ejercicio 5
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-5.ts)
 En este caso Chuck Norris quiere que eliminemos las letras a y e de una cadena, la dividamos por palabras, las ordenemos y luego las volvamos a unir. Todo en una linea. Y si es una cadena vacía Chuck le mete un puñetazo tan fuerte que debe retornar la palabra **Broken!**.
 
 ```typescript
@@ -178,6 +183,7 @@ console.log(onePunch(''));
 Con un operador ternario comprobamos si la longitud de la cadena de entrada es 0. Si efectivamente es 0 retornamos la cadena **Broken!**. En caso de que no lo sea lo que hacemos es itilizar la función **replace** para eliminar las a y e encontradas por la expresión /[ae]/ig. Es importante usar el flag i para que no tenga en cuenta si son mayúsculas o minúsculas. Esa cadena resultante la separamos por espacios gracias a **split(' ')** y ordenamos alfabeticamente gracias a **sort()**. Finalmente volvemos a reunir la cadena dejando un espacio entre palabras con **join(' ')**. 
 
 ### Ejercicio 6
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-6.ts)
 Ahora debemos validar cadenas según el formato ISBN-10. Las cadenas válidas pueden tener o no guiones, están formadas por 9 dígitos y un último caracter de verificación que puede ser otro dígito o una X, que corresponde a un 10.
 Para que sea válido debe cumplirse:
 **(x1 * 10 + x2 * 9 + x3 * 8 + x4 * 7 + x5 * 6 + x6 * 5 + x7 * 4 + x8 * 3 + x9 * 2 + x10 * 1) mod 11 == 0**
@@ -217,6 +223,7 @@ Una vez comprobamos que la longitud es la correcta vamos a verificar la cadena s
 Finalizada toda la suma calculamos el modulo 11 de dicho valor. Si el resultado es 0 indica que es un código correcto y, por tanto, devolvemos true.
 
 ### Ejercicio 7
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-7.ts)
 Junto con el 2 es de los ejercicios más complejos. Para realizarlo vamos a seguir el algoritmo que nos proporciona [GeeksforGeeks](https://www.geeksforgeeks.org/find-next-greater-number-set-digits/).
 
 ```typescript
@@ -270,6 +277,7 @@ Ahora vamos a trabajar con los números que están a la derecha de la posición 
 Ordenamos esta parte derecha con **sort()** y, una vez tengamos esto unimos las dos partes del número para formar nuestro número final.
 
 ### Ejercicio 8
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-8.ts)
 En este caso tenemos que calcular cúantas IPs hay en entre dos ips dadas. Estas ips serán strings y el resultado será un número.
 
 ```typescript
@@ -306,6 +314,7 @@ Cada uno de los 4 octetos de las IPS corresponde a 256 direcciones. Por tanto, c
 Pasando a la función **ipsInRange**, lo primero es saber qué dirección es mayor que la otra para evitar que la resta nos de un número negativo. Una vez sepamos qué dirección es mayor podemos restar y obtenemos las IP en dicho rango.
 
 ### Ejercicio 9
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-9.ts)
 En este caso vamos a calcular el daño que hace nuestro pokemon en un combate.
 
 ```typescript
@@ -379,6 +388,7 @@ En caso contrario vamos seleccionando con un if el tipo del primer pokemon. Dent
 Una vez sepamos la efectividad que tendrá el ataque simplemente hacemos la operación **number = 50 * (ataque/defensa) * efectividad**. Puede ser que el resultado de esta operación nos de decimales asi que a la hora de retornar el valor vamos a hacer que se muestren unicamente 2 decimales como máximo gracias a **toFixed()**. Esa función devuelve un string asi que debemos pasarla a número con **parseFloat**.
 
 ### Ejercicio 10
+[Acceso al código fuente](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct03-static-types-functions-EduardoSY/blob/master/src/ejercicio-10.ts)
 En este último ejercicio vamos a comprobar que los nombres de usuario sean válido según las siguientes características:
 1. El nombre de usuario tiene que tener al menos 4 caracteres y no más de 30.
 2. El nombre de usuario no puede empezar ni terminar con un guión bajo.
