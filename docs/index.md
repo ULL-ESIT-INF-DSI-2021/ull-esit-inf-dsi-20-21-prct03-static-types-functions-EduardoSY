@@ -4,7 +4,7 @@
 ## 1. Introducción
 Para esta tercera práctica vamos a programar en Typescript. Se nos proponen una serie de ejercicios en en esta [guia](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/) que deberemos resolver. El objetivo es familiarizarnos con el lenguaje y aprender a manejar los distintos tipos de datos y funciones que nos ofrece Typescript.
 
-## Ejercicios:
+## 2. Ejercicios:
 
 ### Ejercicio 1
 En este primer ejercicio se nos plantea calcular qué años son bisiestos.
@@ -416,7 +416,7 @@ El **último IF** corresponde a la cuarta cláusula. En este caso vamos a buscar
 Si hemos logrado pasar todos esos condicionales significa que la cadena es válida. Por tanto retornamos true.
 Si por el contrario fallamos algún condicional retornamos false.
 
-## Dificultades encontradas
+## 3. Dificultades encontradas
 De manera general los ejercicios han sido de baja complejidad. Sin embargo, es cierto que algunos de ellos han resultado un poco más liosos y complejos. Por ejemplo, en el caso del ejercicio 2, el problema surgía por entender cómo funcionaba la forma de representación con factoriales. Gracias a algunos compañeros y a la página de wikipedia en inglés (ya que esta tiene una explicación más amplia que su version española) pude entenderlo.
 
 Otro ejercicio relativamente complejo es el 7. El problema aquí surgía en cómo llegar al algoritmo. Cierto es que una vez lo analizas no es tán complejo pero aún así tuve que buscar dicho algoritmo en la web. En la página de GeeksforGeeks estaba muy bien explicado y eso me permitió entenderlo y programarlo facilmente.
@@ -425,11 +425,11 @@ Finalmente está el ejercicio 10. El problema lo tuve intentando encontrar una e
 
 También cabe mencionar que, a la hora de almacenar los ficheros para este informe, me hubiese gustado tener una rama vacia a parte para ello. Sin embargo, me olvidé de crearla al inicio y a la hora de intentar crear una rama vacia una vez finalicé mis ejercicios tuve muchos problemas asi que decidí no tocar más ese aspecto para evitar más inconvenientes.
 
-## Conclusión
+## 4. Conclusión
 Esta práctica me ha parecido sumamente interesante y divertida. He aprendido mucho sobre Typescript mientras hemos ido resolviendo ejercicios. Ha sido bastante entretenido ir dando solución a las propuestas con este nuevo lenguaje ya que me ha permitido ver lo versátil que puede ser Typescript / Javascript. 
 Aunque el resultado sea positivo, también es cierto que algunos ejercicios se me han complicado un poco.
 
-## Recursos utilizados:
+## 5. Recursos utilizados:
 - [Guión práctica 3](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/): Guión de la práctica 
 - [Algoritmo ejercicio 7](https://www.geeksforgeeks.org/find-next-greater-number-set-digits/): Algoritmo empleado para encontrar el siguiente número mayor.
 - [Sistema factorial](https://en.wikipedia.org/wiki/Factorial_number_system): Página inglesa de Wikipedia sobre el sistema numérico factorial.
