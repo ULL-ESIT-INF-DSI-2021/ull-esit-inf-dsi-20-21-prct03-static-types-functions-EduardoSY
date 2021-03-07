@@ -5,7 +5,7 @@
 Para esta tercera práctica vamos a programar en Typescript. Se nos proponen una serie de ejercicios en en esta [guia](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/) que deberemos resolver. El objetivo es familiarizarnos con el lenguaje y aprender a manejar los distintos tipos de datos y funciones que nos ofrece Typescript.
 
 ## 2. Pasos previos
-Antes de comenzar a programas en Typescript debemos crear organizar correctamente nuestro proyecto, creando los directorios y ficheros de configuración correspondientes. Vamos a seguir esta [Guía de creación de proyecto](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html) para organizar nuestro trabajo.
+Antes de comenzar a programar en Typescript debemos crear organizar correctamente nuestro proyecto, creando los directorios y ficheros de configuración correspondientes. Vamos a seguir esta [Guía de creación de proyecto](https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html) para organizar nuestro trabajo.
 
 ## 3. Ejercicios:
 
@@ -40,8 +40,8 @@ Es bisiesto
 La función **isLeapYear** recibe el numero a comprobar. Luego, en base a unas reglas que se nos dice en el enunciado, hacemos las condiciones que nos permiten filtrar los años bisiestos de los no bisiestos.
 Esas reglas son:
 - Cada año que es divisible por 4.
-- - Excepto cada año que es divisible por 100.
-- - - Al menos que el año también sea divisible por 400.
+  - Excepto cada año que es divisible por 100.
+    - Al menos que el año también sea divisible por 400.
 
 ### Ejercicio 2
 
@@ -338,11 +338,13 @@ console.log(nextGreater(321));
 -1
 ```
 
-Lo primero que hacemos es pasar el número a string para poder dividirlo dígito a dígito. 
-Buscamos el primer número, de derecha a izquierda, cuyo siguiente número sea menor . Este será nuestro pivote.
+Lo primero que hacemos es pasar el número a string para poder dividirlo dígito a dígito y trabajar con cada uno de manera individual.
 
-Luego buscamos a la derecha del pivote el menor número mayor que el pivote.
-Intercambiamos el número que acabamos de buscar con el pivote. 
+Buscamos el primer número, de derecha a izquierda, cuyo siguiente número sea menor . Este será nuestro pivote. 
+En caso de que no lo encontremos significará que el número tiene sus dígitos ordenados de mayor a menor y por tanto no es posible que exista un número mayor con esos dígitos.
+Vemos que estoy usando +num[i]. Añadir un **+** junto a un string nos permite convertirlo a número.
+
+Luego buscamos a la derecha del pivote el menor número mayor que el pivote. Una vez lo encontramos lo intercambiamos con el pivote.
 
 Ahora vamos a trabajar con los números que están a la derecha de la posición donde estaba el pivote. Reunimos el string y con la función **substr()** sacamos la parte derecha.
 Ordenamos esta parte derecha con **sort()** y, una vez tengamos esto unimos las dos partes del número para formar nuestro número final.
