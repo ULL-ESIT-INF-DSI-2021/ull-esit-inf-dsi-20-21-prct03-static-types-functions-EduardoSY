@@ -4,7 +4,7 @@
 // 3. Que la cadena vacia muestre "Broken!"
 function onePunch(cadena) {
     return ((cadena.length === 0) ?
-        'Broken!' : cadena.replace(/[ae]/g, '').split(' ').sort().join(' '));
+        'Broken!' : cadena.replace(/[ae]/ig, '').split(' ').sort().join(' '));
 }
 console.log(onePunch('Beard Jeans Hairbrush Knuckleduster Sand'));
 console.log(onePunch('Snot Snow Soda Tank Beard'));
