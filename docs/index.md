@@ -429,4 +429,9 @@ También cabe mencionar que, a la hora de almacenar los ficheros para este infor
 Esta práctica me ha parecido sumamente interesante y divertida. He aprendido mucho sobre Typescript mientras hemos ido resolviendo ejercicios. Ha sido bastante entretenido ir dando solución a las propuestas con este nuevo lenguaje ya que me ha permitido ver lo versátil que puede ser Typescript / Javascript. 
 Aunque el resultado sea positivo, también es cierto que algunos ejercicios se me han complicado un poco.
 
-
+## Recursos utilizados:
+- [Guión práctica 3](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/): Guión de la práctica 
+- [Algoritmo ejercicio 7](https://www.geeksforgeeks.org/find-next-greater-number-set-digits/): Algoritmo empleado para encontrar el siguiente número mayor.
+- [Sistema factorial](https://en.wikipedia.org/wiki/Factorial_number_system): Página inglesa de Wikipedia sobre el sistema numérico factorial.
+- [Regex101](https://regex101.com/): Web para construir y testear expresiones regulares.
+- [Métodos de String](https://www.w3schools.com/js/js_string_methods.asp): Página con una gran lista de métodos aplicables a los string.
