@@ -1,7 +1,7 @@
 # Práctica 3 - Tipos de datos estáticos y funciones
 * Elaborado por Eduardo Da Silva Yanes
 
-## 1. Introduccion
+## 1. Introducción
 Para esta tercera práctica vamos a programar en Typescript. Se nos proponen una serie de ejercicios en en esta [guia](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/) que deberemos resolver. El objetivo es familiarizarnos con el lenguaje y aprender a manejar los distintos tipos de datos y funciones que nos ofrece Typescript.
 
 ## Ejercicios:
@@ -25,7 +25,7 @@ console.log(isLeapYear(fecha));
 console.log(isLeapYear(fecha2));
 ```
 
-La funcion **isLeapYear** recibe el numero a comprobar. Luego, en base a unas reglas que se nos dice en el enunciado, hacemos las condiciones que nos permiten filtrar los años bisiestos de los no bisiestos.
+La función **isLeapYear** recibe el numero a comprobar. Luego, en base a unas reglas que se nos dice en el enunciado, hacemos las condiciones que nos permiten filtrar los años bisiestos de los no bisiestos.
 Esas reglas son:
 - Cada año que es divisible por 4.
 - - Excepto cada año que es divisible por 100.
@@ -299,7 +299,134 @@ console.log(ipsInRange('20.0.0.10', '20.0.1.0'));
 ```
 
 Para resolver este ejercicio hemos hecho dos funciones. La primera funcion, **ip2int**, pasa la dirección dada a un número.
-Separamos los valores usando como separados los puntos. Cada uno de los 4 octetos de las IPS corresponde a 256 direcciones. Cada octeto debemos multiplicarlo por 256 elevado a su posición, siendo la derecha el 0, y el de la izquierda un 3. Con esto tenemos la cantidad de direcciones de la IP.
+Separamos los valores usando como separador los puntos. 
+
+Cada uno de los 4 octetos de las IPS corresponde a 256 direcciones. Por tanto, cada octeto debemos multiplicarlo por 256 elevado a su posición, siendo la derecha el 0, y el de la izquierda un 3. Con esto tenemos la cantidad de direcciones de la IP.
 
 Pasando a la función **ipsInRange**, lo primero es saber qué dirección es mayor que la otra para evitar que la resta nos de un número negativo. Una vez sepamos qué dirección es mayor podemos restar y obtenemos las IP en dicho rango.
+
+### Ejercicio 9
+En este caso vamos a calcular el daño que hace nuestro pokemon en un combate.
+
+```typescript
+function combatePokemon(tipo1: string, tipo2: string,
+    ataque: number, defensa: number): number {
+  // Variable de efectividad del ataque
+  let efectividad: number = 0;
+  if (tipo1 === tipo2) {
+    efectividad = 0.5;
+  } else if (tipo1 === 'Fuego') {
+    switch (tipo2) {
+      case 'Hierba':
+        efectividad = 2;
+        break;
+      case 'Electrico':
+        efectividad = 1;
+        break;
+      case 'Agua':
+        efectividad = 0.5;
+        break;
+    }
+  } else if (tipo1 === 'Agua') {
+    switch (tipo2) {
+      case ('Hierba' || 'Electrico'):
+        efectividad = 0.5;
+        break;
+      case 'Fuego':
+        efectividad = 2;
+        break;
+    }
+  } else if (tipo1 === 'Electrico') {
+    switch (tipo2) {
+      case ('Fuego' || 'Hierba)'):
+        efectividad = 1;
+        break;
+      case 'Agua':
+        efectividad = 2;
+        break;
+    }
+  } else {
+    switch (tipo2) {
+      case 'Electrico':
+        efectividad = 1;
+        break;
+      case 'Agua':
+        efectividad = 2;
+        break;
+      case 'Fuego':
+        efectividad = 0.5;
+        break;
+    }
+  }
+
+  let damage: number = 50 * (ataque/defensa) * efectividad;
+  return parseFloat(damage.toFixed(2));
+}
+
+console.log('Pikachu [at. 54] VS Magikarp [def. 46] --> Damage: ' +
+combatePokemon('Electrico', 'Agua', 54, 46));
+
+console.log('Torchic [at. 9] VS Treecko [def. 15] --> Damage: ' +
+combatePokemon('Fuego', 'Hierba', 9, 15));
+```
+A esta función le pasamos como parámetro el tipo del pokemon atacante y el tipo del pokemon defensor como strings y el ataque del atacante y la defensa del defensor como números. El resultado a devolver será el daño que causa nuestro pokemon.
+
+Como el valor de la efectividad depende de los tipos lo que haremos será ir comparando cada uno de los tipos para así asignar el valor correspondiente a la efectividad.
+
+El primer caso es que ambos pokemon sea del mismo tipo. En caso de que sea cierto la efectividad será neutra, es decir, 1.
+En caso contrario vamos seleccionando con un if el tipo del primer pokemon. Dentro de cada if tenemos un switch que será el que asignará la efectividad en base al tipo del pokemon defensor.
+
+Una vez sepamos la efectividad que tendrá el ataque simplemente hacemos la operación **number = 50 * (ataque/defensa) * efectividad**. Puede ser que el resultado de esta operación nos de decimales asi que a la hora de retornar el valor vamos a hacer que se muestren unicamente 2 decimales como máximo gracias a **toFixed()**. Esa función devuelve un string asi que debemos pasarla a número con **parseFloat**.
+
+### Ejercicio 10
+En este último ejercicio vamos a comprobar que los nombres de usuario sean válido según las siguientes características:
+1. El nombre de usuario tiene que tener al menos 4 caracteres y no más de 30.
+2. El nombre de usuario no puede empezar ni terminar con un guión bajo.
+3. El nombre de usuario tiene que contener al menos una letra mayúscula, una letra minúscula, un número y algún símbolo especial ($,-,\_).
+4. No se permite la repetición de un mismo tipo de caracter más de dos veces seguidas.
+
+```typescript
+// Me rindo intentando sacar una expresion que haga todo eso
+function isValidUsername(nombre: string): boolean {
+  let size: number = nombre.length;
+
+  if ((size >= 4) && (size <= 30)) {
+    if (/^(?!_).*(?<!_)$/g.test(nombre)) {
+      if ( /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$_-])/g.test(nombre)) {
+        if (!/[a-z][a-z][a-z]/g.test(nombre) &&
+        !/[A-Z][A-Z][A-Z]/g.test(nombre) &&
+        !/[0-9][0-9][0-9]/g.test(nombre) && !/[$_-][$_-][$_-]/g.test(nombre)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+console.log(isValidUsername('_esTe$usERNo_vale'));
+console.log(isValidUsername('EstE_us3r-VAle'));
+console.log(isValidUsername('u__hello$122__'));
+```
+Para esta función **isValidUsername** debemos saber qué hace regex.**test**(string). Test aplica la expresión regular al string que le pasamos como parámetro y devuelve true en caso de que se cumpla o false en caso de que no se cumpla. Sabiendo eso vamos a analizar cada if de nuestra función.
+El **primer IF** corresponde a la primera cláusula. Nos comprueba que el tamaño del nombre esté entre 4 y 30 caractéres.
+El **segundo IF** corresponde a la segunda cláusula. Comprobamos que la cadena no empieza ni acaba por guión bajo.
+El **tercer IF** corresponde a la tercera cláusula. Aquí comprobamos que tenemos **al menos** un caracter de cada tipo: minúscula, mayúscula, número y caracter especial.
+Los símbolos que estamos comprobando son estrictamente los especificados en el enunciado.
+El **último IF** corresponde a la cuarta cláusula. En este caso vamos a buscar que existan 3 repeticiones de un mismo tipo de caracter. A ese resultado vamos a aplicarle el operador **!** para negar el resultado y así permitir aquellas cadenas que **NO** tengan más de dos repeticiones.
+Si hemos logrado pasar todos esos condicionales significa que la cadena es válida. Por tanto retornamos true.
+Si por el contrario fallamos algún condicional retornamos false.
+
+## Dificultades encontradas
+De manera general los ejercicios han sido de baja complejidad. Sin embargo, es cierto que algunos de ellos han resultado un poco más liosos y complejos. Por ejemplo, en el caso del ejercicio 2, el problema surgía por entender cómo funcionaba la forma de representación con factoriales. Gracias a algunos compañeros y a la página de wikipedia en inglés (ya que esta tiene una explicación más amplia que su version española) pude entenderlo.
+
+Otro ejercicio relativamente complejo es el 7. El problema aquí surgía en cómo llegar al algoritmo. Cierto es que una vez lo analizas no es tán complejo pero aún así tuve que buscar dicho algoritmo en la web. En la página de GeeksforGeeks estaba muy bien explicado y eso me permitió entenderlo y programarlo facilmente.
+
+Finalmente está el ejercicio 10. El problema lo tuve intentando encontrar una expresión regular que, en una sola línea, me permitiera comprobar todo lo que se pedía. Estuve a medio camino de logarlo pero se me hizo muy complicado asi que finalmente opté por verificar las cadenas en diversas etapas. 
+
+También cabe mencionar que, a la hora de almacenar los ficheros para este informe, me hubiese gustado tener una rama vacia a parte para ello. Sin embargo, me olvidé de crearla al inicio y a la hora de intentar crear una rama vacia una vez finalicé mis ejercicios tuve muchos problemas asi que decidí no tocar más ese aspecto para evitar más inconvenientes.
+
+## Conclusión
+Esta práctica me ha parecido sumamente interesante y divertida. He aprendido mucho sobre Typescript mientras hemos ido resolviendo ejercicios. Ha sido bastante entretenido ir dando solución a las propuestas con este nuevo lenguaje ya que me ha permitido ver lo versátil que puede ser Typescript / Javascript. 
+Aunque el resultado sea positivo, también es cierto que algunos ejercicios se me han complicado un poco.
+
 
