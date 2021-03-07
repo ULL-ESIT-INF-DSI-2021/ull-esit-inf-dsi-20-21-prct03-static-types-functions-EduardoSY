@@ -408,11 +408,16 @@ console.log(isValidUsername('EstE_us3r-VAle'));
 console.log(isValidUsername('u__hello$122__'));
 ```
 Para esta función **isValidUsername** debemos saber qué hace regex.**test**(string). Test aplica la expresión regular al string que le pasamos como parámetro y devuelve true en caso de que se cumpla o false en caso de que no se cumpla. Sabiendo eso vamos a analizar cada if de nuestra función.
+
 El **primer IF** corresponde a la primera cláusula. Nos comprueba que el tamaño del nombre esté entre 4 y 30 caractéres.
+
 El **segundo IF** corresponde a la segunda cláusula. Comprobamos que la cadena no empieza ni acaba por guión bajo.
+
 El **tercer IF** corresponde a la tercera cláusula. Aquí comprobamos que tenemos **al menos** un caracter de cada tipo: minúscula, mayúscula, número y caracter especial.
 Los símbolos que estamos comprobando son estrictamente los especificados en el enunciado.
+
 El **último IF** corresponde a la cuarta cláusula. En este caso vamos a buscar que existan 3 repeticiones de un mismo tipo de caracter. A ese resultado vamos a aplicarle el operador **!** para negar el resultado y así permitir aquellas cadenas que **NO** tengan más de dos repeticiones.
+
 Si hemos logrado pasar todos esos condicionales significa que la cadena es válida. Por tanto retornamos true.
 Si por el contrario fallamos algún condicional retornamos false.
 
